@@ -1,3 +1,12 @@
+## [1.16.5](https://github.com/CoCreate-app/CoCreate-validation/compare/v1.16.4...v1.16.5) (2026-07-11)
+
+
+### Bug Fixes
+
+* bump package versions ([8154063](https://github.com/CoCreate-app/CoCreate-validation/commit/8154063b9420e0526ca7108796d04d746dc24128))
+* removed post install and add add packages to apprved list ([94bfc7d](https://github.com/CoCreate-app/CoCreate-validation/commit/94bfc7d96e55478659c83fd28201d3f740aa153c))
+* semantic version handling ([5c3ab2d](https://github.com/CoCreate-app/CoCreate-validation/commit/5c3ab2da7ccbad7e5e151e838eec2a1100082a88))
+
 ## [1.16.4](https://github.com/CoCreate-app/CoCreate-validation/compare/v1.16.3...v1.16.4) (2026-02-04)
 
 
