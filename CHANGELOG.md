@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/CoCreate-app/CoCreate-validation/compare/v1.16.5...v1.17.0) (2026-07-17)
+
+
+### Features
+
+* update automated workflow and release configuration for improved semantic release handling ([255fefa](https://github.com/CoCreate-app/CoCreate-validation/commit/255fefa21733f19e1452c43d3e88834b63a620ff))
+
 ## [1.16.5](https://github.com/CoCreate-app/CoCreate-validation/compare/v1.16.4...v1.16.5) (2026-07-11)
 
 
