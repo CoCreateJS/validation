@@ -1,3 +1,10 @@
+## [1.17.2](https://github.com/CoCreate-app/CoCreate-validation/compare/v1.17.1...v1.17.2) (2026-07-19)
+
+
+### Bug Fixes
+
+* set default branch to main ([13268a1](https://github.com/CoCreate-app/CoCreate-validation/commit/13268a13a51b1ae4ff00efddbdd156c6e1b940b3))
+
 ## [1.17.1](https://github.com/CoCreate-app/CoCreate-validation/compare/v1.17.0...v1.17.1) (2026-07-17)
 
 
