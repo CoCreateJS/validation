@@ -37,7 +37,7 @@
   "main": "./src/index.js",
   "dependencies": {
     "@cocreate/actions": "^1.23.0",
-    "@cocreate/render": "^1.49.0"
+    "@cocreate/render": "^1.49.2"
   },
   "devDependencies": {
     "@cocreate/webpack": "^1.7.0"
