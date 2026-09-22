@@ -1,4 +1,4 @@
-import { render } from '@cocreate/render';
+import { renderErrors } from "../messages.js";
 
 function initMatches() {
     let elements = document.querySelectorAll('[matches]');
@@ -16,31 +16,35 @@ function validateMatchEvent(e) {
 
 function validateMatch(element) {
     // let element = e.target;
-    let target = element.validations.matches;
+    let target = document.querySelector(element.getAttribute('matches'));
+    if (!target) {
+        element.setAttribute('validation', 'false');
+        return;
+    }
     if (target.value == element.value) {
-        target.setAttribute('validation', 'true');
         element.setAttribute('validation', 'true');
     }
     else {
-        target.setAttribute('validation', 'false');
         element.setAttribute('validation', 'false');
     }
 }
 
-function matches(elements) {
+function matches(elements, report = renderErrors) {
     let failedElements = [];
     for (let element of elements) {
+        validateMatch(element);
         let isValid = element.getAttribute('validation');
         if (isValid == 'false') {
             failedElements.push(element);
         }
     }
     if (failedElements.length) {
-        render({
-            selector: "[template*='validate']",
+        report({
+            selector: '[template~="notification"]',
             data: [{
                 type: 'matches',
-                status: 'failed',
+                status: 'error',
+                success: false,
                 message: 'One or more values do not match',
                 selector: '[matches][validation="false"]',
                 elements: failedElements

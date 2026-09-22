@@ -89,3 +89,52 @@ This software is dual-licensed under the GNU Affero General Public License versi
 -   **Commercial Use**: For-profit companies and individuals intending to use this software for commercial purposes must obtain a commercial license. The commercial license is available when you sign up for an API key on our [website](https://cocreate.app). This license permits proprietary use and modification of the software without the copyleft requirements of the AGPLv3. It is ideal for integrating this software into proprietary commercial products and applications.
 
 If you have not purchased a commercial license and intend to use this software for commercial purposes, you are required to sign up for an API key on our website.
+
+
+### Action lifecycle and native constraints
+
+Use `actions="disabled, validate, save, disabled"` to disable the button while
+validating and saving, then explicitly enable it on success. Validation failure
+or an exception calls `action.abort()`, which releases a button disabled by that
+chain. Validation success calls `action.end()` and continues the chain.
+
+Native controls use the browser constraint validation API for `required`, input
+types, `pattern`, ranges, and other supported constraints. Custom messages set
+with `element.setCustomValidity(message)` are preserved; clear them with
+`element.setCustomValidity("")` when resolved. Fields with `aria-errormessage` display errors in their referenced elements.
+Without a valid target, errors render into `template="notification"` and the first
+invalid native field reports its browser message.
+Disabled controls and controls barred from native validation are skipped.
+`novalidate` on the form or `formnovalidate` on the action element skips the native
+checks; explicitly configured CoCreate rules still run.
+
+Custom `matches` and `unique` validators are awaited. Use native `required`,
+`type="email"`, `pattern`, and `minlength`/`maxlength` attributes for browser
+constraints; the custom `email`, `subdomain`, and `length` attributes have been
+removed. Non-native elements need their own custom validation.
+Each validator registered in `validations` receives its matching elements and
+returns an array of failed elements (or nothing on success). Results are combined
+so one passing rule cannot erase another rule's failure. `validation` and
+`aria-invalid` reflect the combined result. Non-native elements can still use
+CoCreate attributes and `getValue()`. `validate(selector)` scopes validation to
+the matching elements and their descendants.
+
+### Inline field errors
+
+```html
+<label for="email">Email</label>
+<input id="email" type="email" required aria-errormessage="email-error" />
+<span id="email-error" hidden></span>
+```
+
+Native and CoCreate validation messages use this same explicit relationship.
+Validation reveals the target and updates `aria-invalid`; successful revalidation
+clears and hides the message. `aria-describedby` help text is left intact.
+Messages are inserted as text, not HTML. Linked errors do not also generate a
+notification. Missing targets fall back to notifications.
+
+Custom validators may accept a second `report` callback and call
+`report({ data: [{ type: "rule", status: "error", success: false,
+message: "Explain the error", elements: failedElements }] })` before returning
+`failedElements`. The action collects these reports and presents the first
+reported error per field after all rules finish.

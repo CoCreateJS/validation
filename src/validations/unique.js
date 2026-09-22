@@ -1,6 +1,6 @@
-import { render } from '@cocreate/render';
+import { renderErrors } from "../messages.js";
 
-export const unique = async (elements) => {
+export const unique = async (elements, report = renderErrors) => {
     let failedElements = [];
     for (let element of elements) {
         let unique = element.getAttribute('unique');
@@ -11,11 +11,12 @@ export const unique = async (elements) => {
         }
     }
     if (failedElements.length) {
-        render({
-            selector: "[template*='validate']",
+        report({
+            selector: '[template~="notification"]',
             data: [{
                 type: 'unique',
-                status: 'failed',
+                status: 'error',
+                success: false,
                 message: 'One or more values are not unique',
                 selector: '[unique="false"]',
                 elements: failedElements
