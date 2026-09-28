@@ -1,9 +1,9 @@
 import { renderErrors } from "../messages.js";
 
 function initMatches() {
-    let elements = document.querySelectorAll('[matches]');
+    let elements = document.querySelectorAll('[match-query]');
     for (let element of elements) {
-        let targetSelector = element.getAttribute('matches');
+        let targetSelector = element.getAttribute('match-query');
         let target = document.querySelector(targetSelector);
         element.validations = { matches: target };
         element.addEventListener('input', validateMatchEvent);
@@ -15,17 +15,16 @@ function validateMatchEvent(e) {
 }
 
 function validateMatch(element) {
-    // let element = e.target;
-    let target = document.querySelector(element.getAttribute('matches'));
+    let target = element.queryElements();
     if (!target) {
-        element.setAttribute('validation', 'false');
+        element.setAttribute('match', 'false');
         return;
     }
     if (target.value == element.value) {
-        element.setAttribute('validation', 'true');
+        element.setAttribute('match', 'true');
     }
     else {
-        element.setAttribute('validation', 'false');
+        element.setAttribute('match', 'false');
     }
 }
 
@@ -33,7 +32,7 @@ function matches(elements, report = renderErrors) {
     let failedElements = [];
     for (let element of elements) {
         validateMatch(element);
-        let isValid = element.getAttribute('validation');
+        let isValid = element.getAttribute('match');
         if (isValid == 'false') {
             failedElements.push(element);
         }
@@ -46,8 +45,7 @@ function matches(elements, report = renderErrors) {
                 status: 'error',
                 success: false,
                 message: 'One or more values do not match',
-                selector: '[matches][validation="false"]',
-                elements: failedElements
+                selector: '[match-query][match="false"]'
             }]
         });
         return failedElements;
