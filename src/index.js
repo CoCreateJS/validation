@@ -6,14 +6,17 @@
  ********************************************************************************/
 
 import actions from "@cocreate/actions";
+import "@cocreate/element-prototype";
 import { render } from "@cocreate/render";
 import { clearError, errorTargets, renderErrors } from "./messages.js";
 import { matches } from "./validations/matches.js";
 import { unique } from "./validations/unique.js";
+import { value } from "./validations/value.js";
 
 const validations = new Map();
 validations.set("matches", matches);
 validations.set("unique", unique);
+validations.set("validate", value);
 
 async function validate(action) {
     try {
