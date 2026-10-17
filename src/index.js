@@ -34,6 +34,7 @@ async function validate(action) {
             }
         }
         const elements = [...candidates].filter(element =>
+            !element.closest("[template]") &&
             !element.matches(":disabled") && element.willValidate !== false
         );
         const failed = new Set();
