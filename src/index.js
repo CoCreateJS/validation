@@ -20,7 +20,7 @@ validations.set("validate", value);
 
 async function validate(action) {
     try {
-        const selectors = [...validations.keys()].map(name => `[${name}]`).join(", ");
+        const selectors = [...validations.keys()].map(name => `[${name}]`).concat("[component][required]").join(", ");
         const candidates = new Set();
         const form = action.element.form || action.form || action.element.closest("form");
         const roots = action.params ? document.querySelectorAll(action.params) : [form];
@@ -42,6 +42,11 @@ async function validate(action) {
         if (nativeEnabled) {
             for (const element of elements) {
                 if (element.willValidate && !element.checkValidity()) failed.add(element);
+                if (element.matches("[component][required]")) {
+                    const value = await element.getValue();
+                    if (value == null || value === "" || Array.isArray(value) && !value.length)
+                        failed.add(element);
+                }
             }
             if (failed.size) {
                 for (const element of elements) markValidity(element, !failed.has(element));
@@ -50,11 +55,11 @@ async function validate(action) {
                 renderErrors({
                     data: [...failed].map(element => ({
                         type: "validate", status: "error", success: false,
-                        message: element.validationMessage, elements: [element]
+                        message: element.validationMessage || "Please select at least one option.", elements: [element]
                     }))
                 });
                 if (errorTargets(first).length) first.focus();
-                else first.reportValidity();
+                else first.reportValidity?.();
                 return;
             }
         }
