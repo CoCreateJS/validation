@@ -1,4 +1,5 @@
 import { render } from "@cocreate/render";
+import "@cocreate/element-prototype";
 
 export function errorTargets(element) {
     const root = element.getRootNode();
@@ -9,7 +10,7 @@ export function errorTargets(element) {
 
 export function clearError(element) {
     for (const target of errorTargets(element)) {
-        target.textContent = "";
+        target.setValue("");
         target.hidden = true;
     }
 }
@@ -28,7 +29,7 @@ export function renderErrors({ data }) {
                 continue;
             }
             for (const target of targets) {
-                target.textContent = error.message;
+                target.setValue(error.message);
                 target.hidden = false;
             }
         }

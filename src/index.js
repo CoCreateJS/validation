@@ -42,7 +42,7 @@ async function validate(action) {
         if (nativeEnabled) {
             for (const element of elements) {
                 if (element.willValidate && !element.checkValidity()) failed.add(element);
-                if (element.matches("[component][required]")) {
+                if (element.hasAttribute("required")) {
                     const value = await element.getValue();
                     if (value == null || value === "" || Array.isArray(value) && !value.length)
                         failed.add(element);
@@ -55,7 +55,7 @@ async function validate(action) {
                 renderErrors({
                     data: [...failed].map(element => ({
                         type: "validate", status: "error", success: false,
-                        message: element.validationMessage || "Please select at least one option.", elements: [element]
+                        message: element.validationMessage || "A value is required.", elements: [element]
                     }))
                 });
                 if (errorTargets(first).length) first.focus();
