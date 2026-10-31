@@ -108,7 +108,9 @@ Disabled controls and controls barred from native validation are skipped.
 `novalidate` on the form or `formnovalidate` on the action element skips the native
 checks; explicitly configured CoCreate rules still run.
 
-Custom `matches` and `unique` validators are awaited. Use native `required`,
+Custom `matches` validators are awaited. A `valid="false"` value marks the
+element invalid; `valid="true"` passes this rule. Validation writes its
+combined result to `validation` and `aria-invalid`. Use native `required`,
 `type="email"`, `pattern`, and `minlength`/`maxlength` attributes for browser
 constraints; the custom `email`, `subdomain`, and `length` attributes have been
 removed. Non-native elements need their own custom validation.

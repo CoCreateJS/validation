@@ -26,8 +26,8 @@
       "declarative": {
         "selectors": [
           "[template~=\"notification\"]",
-          "[unique=\"false\"]",
-          "[match-query][match=\"false\"]"
+          "[match-query][match=\"false\"]",
+          "[valid=\"false\"]"
         ],
         "attributes": [
           {
@@ -46,7 +46,7 @@
             "name": "required"
           },
           {
-            "name": "unique"
+            "name": "valid"
           },
           {
             "name": "validation"

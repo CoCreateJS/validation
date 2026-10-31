@@ -10,13 +10,29 @@ import "@cocreate/element-prototype";
 import { render } from "@cocreate/render";
 import { clearError, errorTargets, renderErrors } from "./messages.js";
 import { matches } from "./validations/matches.js";
-import { unique } from "./validations/unique.js";
 import { value } from "./validations/value.js";
 
 const validations = new Map();
 validations.set("matches", matches);
-validations.set("unique", unique);
+validations.set("valid", validState);
 validations.set("validate", value);
+
+function validState(elements, report = renderErrors) {
+    const failedElements = elements.filter(element => element.getAttribute("valid") === "false");
+
+    if (failedElements.length) {
+        report({
+            data: failedElements.map(element => ({
+                type: "valid",
+                status: "error",
+                success: false,
+                message: element.validationMessage || "This value is not valid.",
+                elements: [element]
+            }))
+        });
+        return failedElements;
+    }
+}
 
 async function validate(action) {
     try {
@@ -90,7 +106,8 @@ async function validate(action) {
 }
 
 function markValidity(element, valid) {
-    element.setAttribute("validation", String(valid));
+    const state = String(valid);
+    element.setAttribute("validation", state);
     element.setAttribute("aria-invalid", String(!valid));
     if (valid) clearError(element);
 }
