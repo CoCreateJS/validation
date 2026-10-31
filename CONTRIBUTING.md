@@ -1,14 +1,14 @@
 # Contributing to CoCreate-validation
 
-This project is work of [many contributors](https://github.com/CoCreate-app/CoCreate-validation/graphs/contributors).
-You're encouraged to submit [pull requests](https://github.com/CoCreate-app/CoCreate-validation/pulls),
-[propose features and discuss issues](https://github.com/CoCreate-app/CoCreate-validation/issues).
+This project is work of [many contributors](https://github.com/CoCreateJS/CoCreate-validation/graphs/contributors).
+You're encouraged to submit [pull requests](https://github.com/CoCreateJS/CoCreate-validation/pulls),
+[propose features and discuss issues](https://github.com/CoCreateJS/CoCreate-validation/issues).
 
 In the examples below, substitute your Github username for `contributor` in URLs.
 
 ## Fork the Project
 
-Fork the [project on Github](https://github.com/CoCreate-app/CoCreate-validation) and check out your copy.
+Fork the [project on Github](https://github.com/CoCreateJS/CoCreate-validation) and check out your copy.
 
 ```
 git clone https://github.com/contributor/CoCreate-validation.git
@@ -75,7 +75,7 @@ git push origin my-feature-branch
 
 ## Make a Pull Request
 
-Go to [https://github.com/CoCreate-app/CoCreate-validation](https://github.com/CoCreate-app/CoCreate-validation) and select your feature branch.
+Go to [https://github.com/CoCreateJS/CoCreate-validation](https://github.com/CoCreateJS/CoCreate-validation) and select your feature branch.
 Click the 'Pull Request' button and fill out the form. Pull requests are usually reviewed within a few days.
 
 ## Rebase
