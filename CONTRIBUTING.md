@@ -13,7 +13,7 @@ Fork the [project on Github](https://github.com/CoCreate-app/CoCreate-validation
 ```
 git clone https://github.com/contributor/CoCreate-validation.git
 cd CoCreate-validation
-git remote add upstream https://gitlab.com/cocreatejs/CoCreate-validation.git
+git remote add upstream https://github.com/cocreatejs/CoCreate-validation.git
 ```
 
 ## Create a Topic Branch

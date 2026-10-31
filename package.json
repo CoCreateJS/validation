@@ -67,7 +67,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/cocreatejs/CoCreate-validation.git"
+    "url": "git+https://github.com/cocreatejs/CoCreate-validation.git"
   },
   "author": "CoCreate LLC",
   "license": "AGPL-3.0",
