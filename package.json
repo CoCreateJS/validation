@@ -15,51 +15,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "cocreate": {
-    "environment": [
-      "client"
-    ],
-    "interface": {
-      "schemaVersion": 1,
-      "summary": "A simple validation component in vanilla javascript. Easily configured using HTML5 attributes and/or JavaScript API.",
-      "source": "src/index.js",
-      "declarative": {
-        "selectors": [
-          "[template~=\"notification\"]",
-          "[match-query][match=\"false\"]",
-          "[valid=\"false\"]"
-        ],
-        "attributes": [
-          {
-            "name": "aria-errormessage"
-          },
-          {
-            "name": "aria-invalid"
-          },
-          {
-            "name": "match"
-          },
-          {
-            "name": "match-query"
-          },
-          {
-            "name": "required"
-          },
-          {
-            "name": "valid"
-          },
-          {
-            "name": "validation"
-          }
-        ]
-      },
-      "api": {
-        "exports": [
-          "validations"
-        ]
-      }
-    }
-  },
   "scripts": {
     "start": "webpack --config webpack.config.js",
     "build": "webpack --mode=production --config webpack.config.js",

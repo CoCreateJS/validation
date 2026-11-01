@@ -12,6 +12,11 @@ import { clearError, errorTargets, renderErrors } from "./messages.js";
 import { matches } from "./validations/matches.js";
 import { value } from "./validations/value.js";
 
+/**
+ *
+ * @public
+ * @environment client
+ */
 const validations = new Map();
 validations.set("matches", matches);
 validations.set("valid", validState);
@@ -115,3 +120,83 @@ function markValidity(element, valid) {
 actions.init({ name: "validate", callback: validate });
 
 export default { validations };
+
+/**
+ *
+ * @name aria-errormessage
+ * @kind member
+ * @attribute
+ * @environment client
+ */
+
+/**
+ *
+ * @name aria-invalid
+ * @kind member
+ * @attribute
+ * @environment client
+ */
+
+/**
+ *
+ * @name match
+ * @kind member
+ * @attribute
+ * @environment client
+ */
+
+/**
+ *
+ * @name match-query
+ * @kind member
+ * @attribute
+ * @environment client
+ */
+
+/**
+ *
+ * @name required
+ * @kind member
+ * @attribute
+ * @environment client
+ */
+
+/**
+ *
+ * @name valid
+ * @kind member
+ * @attribute
+ * @environment client
+ */
+
+/**
+ *
+ * @name validation
+ * @kind member
+ * @attribute
+ * @environment client
+ */
+
+/**
+ * A simple validation component in vanilla javascript. Easily configured using HTML5 attributes and/or JavaScript API.
+ *
+ * @module validation
+ * @environment client
+ */
+
+/**
+ * Declarative selectors recognized by this module.
+ *
+ * @name declarative-selectors
+ * @kind member
+ * @selectors
+ * @environment client
+ * @example
+ * ```json
+ * [
+ *   "[template~=\"notification\"]",
+ *   "[match-query][match=\"false\"]",
+ *   "[valid=\"false\"]"
+ * ]
+ * ```
+ */
