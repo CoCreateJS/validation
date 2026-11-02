@@ -1,3 +1,35 @@
+# [2.0.0](https://github.com/CoCreateJS/validation/compare/v1.17.2...v2.0.0) (2026-11-02)
+
+
+### Bug Fixes
+
+* add Deno specific entries to .gitignore ([548bcab](https://github.com/CoCreateJS/validation/commit/548bcab0aaa7e6f1b0427e0ceb48d7bdfa703896))
+* bump [@cocreate](https://github.com/cocreate) dependencies ([44765c2](https://github.com/CoCreateJS/validation/commit/44765c2c91cc23b39d71ad81e9323900f8657d25))
+* bump [@cocreate](https://github.com/cocreate) package versions ([7cc8ca1](https://github.com/CoCreateJS/validation/commit/7cc8ca1c226492bccedd53faaf9a48100863a592))
+* bump versions ([731fb84](https://github.com/CoCreateJS/validation/commit/731fb840e73e1144597caa1cbf67b89cda465bd2))
+* bump versions ([32b13a3](https://github.com/CoCreateJS/validation/commit/32b13a3d6d35bba15d996a5b670f218f3adcec6f))
+* ensure elements are correctly filtered by template context ([3846db1](https://github.com/CoCreateJS/validation/commit/3846db1d42bceefc1a823634de0f2d727562916e))
+* remove trailing slash from node_modules entry in .gitignore ([aac383f](https://github.com/CoCreateJS/validation/commit/aac383fcbc0105b792140ecb681c03304e1e7287))
+* update git url ([fa8f094](https://github.com/CoCreateJS/validation/commit/fa8f094c2effc4b63b6346c99d14a2ff3108a92f))
+* update GitHub Actions to use latest versions and sync package.json description ([395ecf5](https://github.com/CoCreateJS/validation/commit/395ecf56531f5d2ca7272405e2a9331ee21710ed))
+
+
+### chore
+
+* record package identity migration as breaking ([0f4017f](https://github.com/CoCreateJS/validation/commit/0f4017f6c2d0d4f98d437bb24ea511f6d25c58fd))
+
+
+### Features
+
+* replace uuid import and usage with utils ([32f7f1b](https://github.com/CoCreateJS/validation/commit/32f7f1ba3363d6040d4b53ab30ac9cccc6b78e85))
+* validate bound valid state ([74e4dbb](https://github.com/CoCreateJS/validation/commit/74e4dbb6a0d7020bc4c8d8729c39956e0c4e6969))
+* validate resolved object values ([772bd99](https://github.com/CoCreateJS/validation/commit/772bd991887c0b98340b243e4341fe99b49fa437))
+
+
+### BREAKING CHANGES
+
+* Consumers must install @cocreate/validation and use the CoCreateJS repository identity; previous package and repository identities are no longer supported.
+
 ## [1.17.2](https://github.com/CoCreateJS/CoCreate-validation/compare/v1.17.1...v1.17.2) (2026-07-19)
 
 
